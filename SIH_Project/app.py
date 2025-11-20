@@ -14,6 +14,10 @@ migrate = Migrate(app,db)
 def home():
     return render_template('base.html')
 
+@app.route('/signupcheck')
+def check():
+    return render_template('login_signup.html')
+
 @app.route('/login',methods =['GET','POST'])
 def login():
     if request.method == 'POST':

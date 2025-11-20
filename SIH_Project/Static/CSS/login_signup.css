@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(-45deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 900px;
+  height: 520px;
+  background: white;
+  border-radius: 25px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  transition: 0.6s ease;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.container.sign-up-active {
+  width: 1200px;
+}
+
+.image-section {
+  width: 50%;
+  background: linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.75),
+      rgba(96, 165, 250, 0.75)
+    ),
+    url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+/* Move image LEFT → RIGHT and keep it there */
+
+.container.sign-up-active .image-section {
+  transform: translateX(100%);
+}
+
+.form-section {
+  width: 50%;
+  position: relative;
+  transition: transform 0.6s ease;
+}
+/* Move forms left so signup appears on LEFT */
+
+.container.sign-up-active .form-section {
+  transform: translateX(-100%);
+}
+
+form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.6s ease;
+}
+/* Login stays visible initially */
+
+#login-form {
+  transform: translateX(0);
+}
+/* Signup off-screen to the right */
+
+#signup-form {
+  transform: translateX(100%);
+}
+/* When sign-up active → bring signup into LEFT */
+
+.container.sign-up-active #signup-form {
+  transform: translateX(0);
+}
+/* Move login out */
+
+.container.sign-up-active #login-form {
+  transform: translateX(-100%);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+}
+
+.bottom-text span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* ----------------------------------------
+           UIVERSE CARD INSIDE SIGNUP FORM
+           ---------------------------------------- */
+/* From Uiverse.io by dylanharriscameron */
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  align-self: center;
+}
+
+.bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 190px;
+  height: 240px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  outline: 2px solid white;
+}
+
+.blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%);
+  }
+  25% {
+    transform: translate(0%, -100%);
+  }
+  50% {
+    transform: translate(0%, 0%);
+  }
+  75% {
+    transform: translate(-100%, 0%);
+  }
+  100% {
+    transform: translate(-100%, -100%);
+  }
+}
+/* ---------------------------------------------------------
+           UIVERSE GLOWING BUTTON replacing SIGNUP button
+           --------------------------------------------------------- */
+
+.glow-wrapper {
+  margin-top: 10px;
+  align-self: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.inline-flex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.rounded-xl {
+  border-radius: 12px;
+}
+
+.px-8 {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.py-3 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-white {
+  color: white;
+}
+
+.bg-gray-900 {
+  background: #111828;
+}
+
+a:hover {
+  text-decoration: none;
+}

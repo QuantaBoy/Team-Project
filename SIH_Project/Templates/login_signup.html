@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel=stylesheet href="{{url_for('static',filename='css/login_signup.css')}}">
+    <title>Login / Sign Up - With Uiverse Elements</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+
+        <div class="image-section"></div>
+
+        <div class="form-section">
+
+            <!-- LOGIN FORM -->
+            <form id="login-form">
+                <h2>Welcome Back 👋</h2>
+
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+
+                <!-- UIVERSE GLOWING BUTTON for Login -->
+                <div class="glow-wrapper">
+                    <div class="relative inline-flex items-center justify-center gap-4 group">
+                        <div class="absolute inset-0 duration-1000 opacity-60 transitiona-all bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-400 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"></div>
+                        <a role="button" class="group relative inline-flex items-center justify-center text-base rounded-xl bg-gray-900 px-8 py-3 font-semibold text-white transition-all duration-200 hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
+                            title="login" href="#">Login<svg aria-hidden="true" viewBox="0 0 10 10" height="10" width="10" fill="none" class="mt-0.5 ml-2 -mr-1 stroke-white stroke-2">
+                                <path d="M0 5h7" class="transition opacity-0 group-hover:opacity-100"></path>
+                                <path d="M1 1l4 4-4 4" class="transition group-hover:translate-x-[3px]"></path>
+                            </svg></a>
+                    </div>
+                </div>
+
+                <p class="bottom-text">Don't have an account?
+                    <span id="signUpBtn">Sign Up</span>
+                </p>
+            </form>
+
+            <!-- SIGNUP FORM -->
+            <form id="signup-form">
+
+                <h2>Create Account ✍️</h2>
+
+                <!-- UIVERSE CARD -->
+                <div class="card">
+                    <div class="bg"></div>
+                    <div class="blob"></div>
+                </div>
+
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+
+                <!-- UIVERSE GLOWING BUTTON for Create Account -->
+                <div class="glow-wrapper">
+                    <div class="relative inline-flex items-center justify-center gap-4 group">
+                        <div class="absolute inset-0 duration-1000 opacity-60 transitiona-all bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-400 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"></div>
+                        <a role="button" class="group relative inline-flex items-center justify-center text-base rounded-xl bg-gray-900 px-8 py-3 font-semibold text-white transition-all duration-200 hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
+                            title="signup" href="#">Create Account<svg aria-hidden="true" viewBox="0 0 10 10" height="10" width="10" fill="none" class="mt-0.5 ml-2 -mr-1 stroke-white stroke-2">
+                                <path d="M0 5h7" class="transition opacity-0 group-hover:opacity-100"></path>
+                                <path d="M1 1l4 4-4 4" class="transition group-hover:translate-x-[3px]"></path>
+                            </svg></a>
+                    </div>
+                </div>
+
+                <p class="bottom-text">Already have an account?
+                    <span id="loginBtn">Log In</span>
+                </p>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+        document.getElementById("signUpBtn").onclick = () =>
+            container.classList.add("sign-up-active");
+
+        document.getElementById("loginBtn").onclick = () =>
+            container.classList.remove("sign-up-active");
+    </script>
+
+</body>
+
+</html>
+<!-- From Uiverse.io by shivam_7937 -->
