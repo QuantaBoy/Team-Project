@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
     <title>Login</title>
 </head>
 <body>
+    <div class="card">
+        <div class="blob"></div>
+        <div class="bg"></div>
+        <div class="form-container">
+            <h1>Login</h1>
+            
+            <form method="POST">
+                <div class="Student-Login">
+                    <input type="text" name="username" class="st-name" placeholder="Full Name" required>
+                </div>
 
-    <h1>Login</h1>
+                <div class="Student-Login">
+                    <input type="password" name="pass" class="st-pass" placeholder="Enter Password" required>
+                </div>
 
-    <form method="POST">
-
-        <div class="Student-Login">
-            <input type="text" name="username" class="st-name" placeholder="Full Name" required>
+                <!-- Gradient Button -->
+                <div class="button-wrapper">
+                    <div class="button-glow"></div>
+                    <button type="submit" class="btn">
+                        Login
+                        <svg viewBox="0 0 10 10" height="10" width="10" fill="none" class="arrow">
+                            <path d="M0 5h7" class="line1"></path>
+                            <path d="M1 1l4 4-4 4" class="line2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <div class="Student-Login">
-            <input type="password" name="pass" class="st-pass" placeholder="Enter Password" required>
-        </div>
-
-        <!-- Gradient Button -->
-        <div class="button-wrapper">
-            <div class="button-glow"></div>
-
-            <button type="submit" class="btn">
-                Login
-
-                <svg viewBox="0 0 10 10" height="10" width="10" fill="none" class="arrow">
-                    <path d="M0 5h7" class="line1"></path>
-                    <path d="M1 1l4 4-4 4" class="line2"></path>
-                </svg>
-            </button>
-        </div>
-
-    </form>
-
+    </div>
 </body>
 </html>
