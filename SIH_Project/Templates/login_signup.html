@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Login / Signup</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login_signup.css')}}">
+</head>
+
+<body>
+
+    <div class="container" id="container">
+
+        <!-- LEFT PANEL -->
+        <div class="left-pane">
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="form active">
+                <h1 class="title">Welcome back👋</h1>
+                <p class="subtitle">Please enter your details.</p>
+
+                <button class="google-btn">
+                    <img src="https://image2url.com/images/1763657346897-8db8d7bc-b6f6-47a1-8f70-60fb8e6ff864.jpeg">
+                    Log in with Google
+                </button>
+
+                <div class="divider"><span></span>or<span></span></div>
+
+                <input type="email" placeholder="Email" class="input">
+                <input type="password" placeholder="Password" class="input">
+
+                <div class="options">
+                    <label><input type="checkbox"> Remember for 30 days</label>
+                    <a class="forgot">Forgot password?</a>
+                </div>
+
+                <button class="login-btn">Log In</button>
+
+                <p class="switch-text">
+                    Don’t have an account?
+                    <span id="toSignup">Sign Up</span>
+                </p>
+            </form>
+
+            <!-- IMAGE (only visible during signup mode) -->
+            <div class="left-image"></div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-pane">
+
+            <!-- IMAGE (default) -->
+            <div class="right-image"></div>
+
+            <!-- SIGNUP FORM -->
+            <form id="signupForm" class="form">
+                <h1 class="title">Create account ✍️</h1>
+                <p class="subtitle">Enter your details.</p>
+
+                <input type="text" placeholder="Name" class="input">
+                <input type="email" placeholder="Email" class="input">
+                <input type="password" placeholder="Password" class="input">
+
+                <button class="login-btn">Sign Up</button>
+
+                <p class="switch-text">
+                    Already have an account?
+                    <span id="toLogin">Log In</span>
+                </p>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="{{url_for('static',filename = 'js/login_signup.js')}}"></script>
+
+</body>
+
+</html>

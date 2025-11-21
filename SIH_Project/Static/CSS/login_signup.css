@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #0a1a3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 950px;
+    height: 560px;
+    background: #fff;
+    border-radius: 35px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* LEFT + RIGHT PANELS */
+
+.left-pane,
+.right-pane {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    transition: 0.7s ease-in-out;
+}
+
+
+/* SLIDING ANIMATION */
+
+.container.signup-active .left-pane {
+    transform: translateX(100%);
+}
+
+.container.signup-active .right-pane {
+    transform: translateX(-100%);
+}
+
+
+/* IMAGE PANELS */
+
+.right-image,
+.left-image {
+    width: 100%;
+    height: 100%;
+    background: url("https://image2url.com/images/1763657346897-8db8d7bc-b6f6-47a1-8f70-60fb8e6ff864.jpeg") center/cover no-repeat;
+}
+
+
+/* Outside rounding */
+
+.right-image {
+    border-radius: 0 35px 35px 0;
+}
+
+.left-image {
+    border-radius: 35px 0 0 35px;
+}
+
+
+/* Left image hidden initially */
+
+.left-image {
+    display: none;
+}
+
+
+/* Show left image in signup mode */
+
+.container.signup-active .left-image {
+    display: block;
+}
+
+
+/* Hide right image in signup mode */
+
+.container.signup-active .right-image {
+    display: none;
+}
+
+
+/* FORMS */
+
+.form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 65px 60px;
+    display: none;
+    flex-direction: column;
+}
+
+.form.active {
+    display: flex;
+}
+
+
+/* TITLES */
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+
+/* GOOGLE BUTTON */
+
+.google-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: #ffffff;
+    border: 1.7px solid #dcdcdc;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.google-btn img {
+    width: 20px;
+}
+
+
+/* DIVIDER */
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.divider span {
+    flex: 1;
+    height: 1px;
+    background: #e2e2e2;
+    margin: 0 12px;
+}
+
+
+/* INPUT FIELDS */
+
+.input {
+    padding: 15px;
+    border-radius: 14px;
+    border: 1.7px solid #e2e2e2;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+
+/* OPTIONS */
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.forgot {
+    color: #1E3A8A;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* BUTTONS */
+
+.login-btn {
+    padding: 15px 0;
+    background: #fdb022;
+    border: none;
+    color: white;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+
+/* SWITCH TEXT */
+
+.switch-text {
+    text-align: center;
+    color: #555;
+    margin-top: 10px;
+}
+
+.switch-text span {
+    color: #1e3a8a;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* SIGNUP FORM POSITIONING */
+
+#signupForm {
+    transform: translateX(100%);
+}
+
+
+/* LOGIN FORM DEFAULT POSITION */
+
+#loginForm {
+    transform: translateX(0%);
+}
+
+
+/* SIGNUP ACTIVE – POSITION CHANGES */
+
+.container.signup-active #signupForm {
+    transform: translateX(0%);
+}
+
+.container.signup-active #loginForm {
+    transform: translateX(-100%);
+}
