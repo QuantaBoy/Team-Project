@@ -12,15 +12,11 @@ migrate = Migrate(app,db)
 
 @app.route('/')
 def home():
-    return render_template('base.html')
+    return render_template('home.html')
 
 @app.route('/pricing')
 def pricing():
     return render_template('pricing.html')
-
-@app.route('/signupcheck')
-def check():
-    return render_template('login_signup.html')
 
 @app.route('/login',methods =['GET','POST'])
 def login():
@@ -32,7 +28,7 @@ def login():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template('login.html')
+    return render_template('login_signup.html')
 
 @app.route('/signup', methods =['GET','POST'])
 def signup():
@@ -45,7 +41,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template('sign_up.html')
+    return render_template('login_signup.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

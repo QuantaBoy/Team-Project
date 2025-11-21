@@ -16,7 +16,7 @@
         <div class="left-pane">
 
             <!-- LOGIN FORM -->
-            <form id="loginForm" class="form active">
+            <form method = "POST" id="loginForm" class="form active">
                 <h1 class="title">Welcome back👋</h1>
                 <p class="subtitle">Please enter your details.</p>
 
@@ -27,8 +27,8 @@
 
                 <div class="divider"><span></span>or<span></span></div>
 
-                <input type="email" placeholder="Email" class="input">
-                <input type="password" placeholder="Password" class="input">
+                <input type="email" name = "name" placeholder="Email" class="input">
+                <input type="password" name = "pass" placeholder="Password" class="input">
 
                 <div class="options">
                     <label><input type="checkbox"> Remember for 30 days</label>
@@ -55,13 +55,13 @@
             <div class="right-image"></div>
 
             <!-- SIGNUP FORM -->
-            <form id="signupForm" class="form">
+            <form method = "POST" id="signupForm" class="form">
                 <h1 class="title">Create account ✍️</h1>
                 <p class="subtitle">Enter your details.</p>
 
-                <input type="text" placeholder="Name" class="input">
-                <input type="email" placeholder="Email" class="input">
-                <input type="password" placeholder="Password" class="input">
+                <input type="text" name = "name" placeholder="Name" class="input">
+                <input type="email" name = "email" placeholder="Email" class="input">
+                <input type="password" name = "pass" placeholder="Password" class="input">
 
                 <button class="login-btn">Sign Up</button>
 
