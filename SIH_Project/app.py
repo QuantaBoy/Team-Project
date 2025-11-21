@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate = Migrate(app,db)
 
-@app.route('/')
+@app.route('https://sih-project-beige.vercel.app/')
 def home():
     return render_template('home.html')
 
