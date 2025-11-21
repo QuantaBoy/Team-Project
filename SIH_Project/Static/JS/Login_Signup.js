@@ -1,37 +1,15 @@
-// Example JS for form submission handling and using localStorage
+  const container = document.getElementById("container");
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
 
-document.getElementById('signup-form').addEventListener('submit', function (e) {
-  e.preventDefault()
+  document.getElementById("toSignup").onclick = () => {
+      container.classList.add("signup-active");
+      loginForm.classList.remove("active");
+      signupForm.classList.add("active");
+  };
 
-  const nameEmail = document.getElementById('signup-name').value.trim()
-  const password = document.getElementById('signup-password').value
-
-  if (nameEmail && password) {
-    // Save signup data in localStorage
-    localStorage.setItem('user', JSON.stringify({ nameEmail, password }))
-    alert('Signup successful!')
-    this.reset()
-  } else {
-    alert('Please fill all fields.')
-  }
-})
-
-document.getElementById('login-form').addEventListener('submit', function (e) {
-  e.preventDefault()
-
-  const usernameEmail = document.getElementById('login-username').value.trim()
-  const password = document.getElementById('login-password').value
-
-  const userData = JSON.parse(localStorage.getItem('user'))
-
-  if (
-    userData &&
-    userData.nameEmail === usernameEmail &&
-    userData.password === password
-  ) {
-    alert('Login successful!')
-    this.reset()
-  } else {
-    alert('Invalid username/email or password.')
-  }
-})
+  document.getElementById("toLogin").onclick = () => {
+      container.classList.remove("signup-active");
+      signupForm.classList.remove("active");
+      loginForm.classList.add("active");
+  };
