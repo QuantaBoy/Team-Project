@@ -4,326 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blue Themed Pricing</title>
-<style>
-  /* Reset & base */
-  * {
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  body, html {
-    margin: 0; padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #050A30 0%, #000419 100%);
-    color: #f0f4ff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Container */
-  .container {
-    max-width: 1200px;
-    margin: 3rem auto 5rem auto;
-    padding: 0 1rem;
-    text-align: center;
-    user-select: none;
-  }
-
-  /* Nav */
-  nav {
-    display: inline-flex;
-    gap: 1.7rem;
-    padding: 1rem 2rem;
-    border-radius: 9999px;
-    background: rgba(255 255 255 / 0.07);
-    box-shadow: 0 0 15px #0f2ae3 inset;
-    margin-bottom: 4rem;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  nav a {
-    color: #aac4ff;
-    text-decoration: none;
-    padding: 0.4rem 1rem;
-    border-radius: 9999px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  nav a:hover:not(.active) {
-    background-color: #0f2ae3;
-    color: white;
-    box-shadow: 0 0 10px #0f2ae3;
-  }
-  nav a.active {
-    background-color: white;
-    color: #0c1aa0;
-    pointer-events: none;
-    font-weight: 700;
-    box-shadow: 0 0 25px #0c1aa0;
-  }
-  nav .download-btn {
-    background: #aac4ff;
-    color: #06124c;
-    font-weight: 700;
-    padding: 0.35rem 1.7rem;
-    box-shadow: 0 0 20px #5fa5ff;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 9999px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  nav .download-btn:hover {
-    background: #0f2ae3;
-    color: white;
-    box-shadow: 0 0 30px #0f2ae3;
-  }
-
-  /* Title */
-  h1 {
-    font-size: 6rem;
-    font-weight: 900;
-    margin: 1.5rem 0 4rem;
-    letter-spacing: -0.05em;
-    user-select: none;
-    color: #e6ebff;
-    text-align: center;   /* <-- FIXED CENTERING */
-  }
-
-  /* Pricing cards container */
-  .pricing-cards {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    max-width: 1150px;
-    margin: 0 auto 4rem auto;
-  }
-
-  /* Pricing card */
-  .card {
-    background: rgba(15, 42, 227, 0.23);
-    border-radius: 1.75rem;
-    width: 320px;
-    padding: 3.3rem 2.5rem 3.5rem 2.5rem;
-    box-shadow:
-      inset 0 0 60px #0f2ae3dd,
-      0 8px 28px rgba(15, 42, 227, 0.5);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #dde6ff;
-    user-select: none;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-12px);
-    box-shadow:
-      inset 0 0 80px #0f2ae3ee,
-      0 14px 48px rgba(15, 42, 227, 0.9);
-  }
-
-  .card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 7rem;
-    background: rgba(15, 42, 227, 0.45);
-    border-radius: 1.75rem 1.75rem 0 0;
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    z-index: 1;
-  }
-
-  .card-content {
-    position: relative;
-    z-index: 5;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .plan-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #aac4ff;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.7rem;
-    user-select: text;
-    text-align: left;
-  }
-
-  .price {
-    font-size: 3.8rem;
-    font-weight: 900;
-    color: white;
-    line-height: 1;
-    margin-bottom: 1.7rem;
-    user-select: text;
-    text-align: left;
-  }
-  .price span {
-    font-weight: 600;
-    font-size: 1.5rem;
-    opacity: 0.7;
-    user-select: text;
-    margin-left: 0.2rem;
-  }
-
-  ul.features {
-    color: #bbcaff;
-    font-size: 1rem;
-    line-height: 1.4;
-    padding-left: 0;
-    list-style: none;
-    margin: 0 0 3rem 0;
-    text-align: left;
-    user-select: text;
-  }
-  ul.features li {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.1rem;
-  }
-  ul.features li svg {
-    flex-shrink: 0;
-    stroke: #78a1ff;
-    stroke-width: 2.5;
-    width: 20px;
-    height: 20px;
-    user-select: none;
-  }
-  ul.features li svg path {
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  button, .btn {
-    border: none;
-    border-radius: 2rem;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 1rem 0;
-    width: 100%;
-    user-select: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .btn.inactive {
-    background: transparent;
-    color: #20387e;
-    box-shadow: none;
-    cursor: not-allowed;
-  }
-  .btn.inactive:hover {
-    background: transparent;
-    box-shadow: none;
-  }
-
-  .btn.active {
-    background: white;
-    color: #0f2ae3;
-    box-shadow:
-      0 0 30px #3390ff,
-      inset 0 0 30px #619afeaa;
-  }
-  .btn.active:hover {
-    background: #dde9ff;
-    box-shadow:
-      0 0 40px #5299ff,
-      inset 0 0 45px #7ab0ffcc;
-    transform: translateY(-3px);
-  }
-  .btn.active svg {
-    margin-left: 10px;
-    stroke: currentColor;
-    stroke-width: 2;
-    width: 14px;
-    height: 14px;
-    transition: transform 0.3s ease;
-  }
-  .btn.active:hover svg {
-    transform: translateX(5px);
-  }
-
-  .billing-toggle {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-    user-select: none;
-    color: #a3b7ff;
-  }
-  .billing-toggle span {
-    user-select: none;
-  }
-  .switch {
-    position: relative;
-    width: 46px;
-    height: 26px;
-    background: #0f2ae3;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-  }
-  .slider {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 22px;
-    height: 22px;
-    background: white;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 8px #9bbeff;
-  }
-  input:checked + .slider {
-    transform: translateX(20px);
-  }
-  input:focus + .slider {
-    box-shadow: 0 0 10px #a9c5ff, 0 0 18px #a0b9ffcc;
-  }
-  input:checked ~ .switch {
-    background-color: #2e4ae0;
-  }
-
-  @media (max-width: 1080px) {
-    .pricing-cards {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.8rem;
-    }
-    .card {
-      width: 280px;
-    }
-  }
-  @media (max-width: 460px) {
-    h1 {
-      font-size: 3.8rem;
-      margin-bottom: 3rem;
-    }
-    .card {
-      width: 100%;
-      max-width: 320px;
-    }
-  }
-</style>
+<link rel="stylesheet" href="{{url_for('static',filename='css/pricing.css')}}">
 </head>
 <body>
   <nav role="navigation" aria-label="Primary Navigation">
@@ -342,13 +23,13 @@
         <div class="plan-name" id="name-free">Free Plan</div>
         <div class="price" id="plan-free" aria-live="polite" aria-atomic="true">Free</div>
         <ul class="features" aria-label="Free plan features">
-          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Send up to 2 transfers per month</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Basic transaction history</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Email support</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Limited currency support</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Basic security features</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Send up to 2 transfers per month</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Basic transaction history</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Email support</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Limited currency support</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Basic security features</li>
         </ul>
-        <button class="btn inactive" aria-disabled="true" tabindex="-1">Get Started</button>
+        <button class="btn inactive" aria-disabled="false" tabindex="0">Get Started</button>
       </div>
     </article>
 
@@ -357,13 +38,13 @@
         <div class="plan-name" id="name-standard">Standard Plan</div>
         <div class="price" id="plan-standard" aria-live="polite" aria-atomic="true">$9.99<span>/m</span></div>
         <ul class="features">
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Unlimited transfers</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Transaction export options</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Priority email support</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Expanded currency support</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Advanced security</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Unlimited transfers</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Transaction export options</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Priority email support</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Expanded currency support</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Advanced security</li>
         </ul>
-        <button class="btn active">
+        <button class="btn active" aria-label="Get Started with Standard Plan">
           Get Started
           <svg viewBox="0 0 10 10"><path d="M0 5h7"/><path d="M1 1l4 4-4 4"/></svg>
         </button>
@@ -375,48 +56,25 @@
         <div class="plan-name" id="name-premium">Premium Plan</div>
         <div class="price" id="plan-premium">$19.99<span>/m</span></div>
         <ul class="features">
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Priority processing</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Advanced analytics</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 24/7 support</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Full currency support</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Enhanced security</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Priority processing</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Advanced analytics</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> 24/7 support</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Full currency support</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg> Enhanced security</li>
         </ul>
-        <button class="btn inactive">Get Started</button>
+        <button class="btn inactive" aria-disabled="false" tabindex="0">Get Started</button>
       </div>
     </article>
   </section>
 
-  <div class="billing-toggle">
+  <div class="billing-toggle" aria-label="Billing frequency toggle">
     <span>Billed Yearly</span>
-    <label class="switch">
-      <input type="checkbox" id="billing-toggle">
+    <label class="switch" aria-label="Toggle yearly billing">
+      <input type="checkbox" id="billing-toggle" role="switch" aria-checked="false" />
       <span class="slider"></span>
     </label>
   </div>
 
-<script>
-  const monthlyPrices = { standard: 9.99, premium: 19.99 };
-  const yearlyPrices = { standard: 99.99, premium: 199.99 };
-
-  const billingToggle = document.getElementById('billing-toggle');
-  const standardPriceEl = document.getElementById('plan-standard');
-  const premiumPriceEl = document.getElementById('plan-premium');
-
-  function updatePrices(isYearly) {
-    if (isYearly) {
-      standardPriceEl.innerHTML = `${yearlyPrices.standard.toFixed(2)}<span>/y</span>`;
-      premiumPriceEl.innerHTML = `${yearlyPrices.premium.toFixed(2)}<span>/y</span>`;
-    } else {
-      standardPriceEl.innerHTML = `${monthlyPrices.standard.toFixed(2)}<span>/m</span>`;
-      premiumPriceEl.innerHTML = `${monthlyPrices.premium.toFixed(2)}<span>/m</span>`;
-    }
-  }
-
-  billingToggle.addEventListener('change', () => {
-    updatePrices(billingToggle.checked);
-  });
-
-  updatePrices(false);
-</script>
+<script src="{{url_for('static',filename='js/pricing.js')}}"></script>"></script>
 </body>
 </html>
