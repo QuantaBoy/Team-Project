@@ -28,7 +28,7 @@ def login():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template('login_signup.html')
+    return render_template('Login_Signup.html')
 
 @app.route('/signup', methods =['GET','POST'])
 def signup():
